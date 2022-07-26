@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/global.css" />
+  </head>
+  <body>
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="carouselItem"></div>
+      </div>
+    </div>
+    <script>
+      const Images = [
+        "image1.jpg",
+        "image2.jpg",
+        "image3.jpg",
+        "image4.jpg",
+        "image5.jpg",
+        "image6.jpg",
+        "image7.jpg",
+      ];
+      const newImage = document.createElement("img");
+      newImage.src = `./images/${Images[0]}`;
+      newImage.classList.add("d-block", "w-100");
+      newImage.alt = "images";
+      document.getElementById("carouselItem").appendChild(newImage);
+
+      const carouselItem = document.getElementById("carouselItem");
+      carouselItem.appendChild(newImage);
+      let i = 0;
+      setInterval(() => {
+        i++;
+        if (i >= Images.length) {
+          i = 0;
+        }
+        newImage.src = `./images/${Images[i]}`;
+      }, 12000);
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
